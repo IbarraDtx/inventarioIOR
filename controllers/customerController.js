@@ -44,14 +44,14 @@ const store = async (req, res) => {
 
 const create = async (req, res) => {
     const releasesCount = await Release.find({ status: 0 }).sort({ createdAt: -1 }).count()
-    res.render('pages/customer/create-Customer', { title: 'Añadir cliente', releasesCount: releasesCount })
+    res.render('pages/customer/create-customer', { title: 'Añadir cliente', releasesCount: releasesCount })
 }
 
 const edit = async (req, res) => {
 
     const customer = await Customer.find({ _id: req.params.id })
     const releasesCount = await Release.find({ status: 0 }).sort({ createdAt: -1 }).count()
-    res.render('pages/customer/edit-Customer', { title: 'Editar cliente', customer: customer[0], releasesCount: releasesCount })
+    res.render('pages/customer/edit-customer', { title: 'Editar cliente', customer: customer[0], releasesCount: releasesCount })
 }
 
 const update = async (req, res) => {
